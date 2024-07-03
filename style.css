@@ -23,9 +23,6 @@ body{
 }
 
 /* home styles */
-.home{
-  
-}
 
 .home ul li{
     display: flex;
@@ -188,8 +185,11 @@ body{
 .playbar{
     position: fixed;
     bottom: 30px;
-    background-color: rgb(230, 236, 230);
+    filter: invert(1);
+    background-color: #dad5d5;
+    border-radius: 10px;
     width: 90%;
+    height: 40px;
     padding: 12px;
     width: 70vw;
 }
@@ -198,6 +198,11 @@ body{
     display: flex;
     justify-content: center;
     gap: 16px;
+}
+
+.song-buttons i{
+    background-color: white
+    ;
 }
 .song-list{
     height: 500px;
@@ -236,4 +241,38 @@ body{
     font-size: 15px;
     width: 64px;
     padding: 12px;
+}
+
+.seekbar{
+    height: 2px;
+    width: 100%;
+    border-radius: 10px;
+    background: black;
+    position: absolute;
+    bottom: 0;
+    margin: 6px;
+}
+
+.circle{
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background-color: black;
+    position: relative;
+    bottom: 6px;
+    left: 0%;
+    transition: left 0.5s;
+}
+
+.song-buttons img{
+    cursor: pointer;
+}
+
+.song-info, .song-time{
+    color: black;
+    padding: 0 12px;
+}
+.above-bar{
+    display: flex;
+    justify-content: space-between;
 }
