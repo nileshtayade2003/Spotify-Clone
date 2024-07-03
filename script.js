@@ -104,6 +104,15 @@ async function main(){
     current_song.addEventListener('timeupdate',()=>{
         // console.log(current_song.currentTime, current_song.duration)
         document.querySelector('.song-time').innerHTML=`${secondsToMinutesSeconds(current_song.currentTime)} / ${secondsToMinutesSeconds(current_song.duration)}`;
+
+        document.querySelector('.circle').style.left = (current_song.currentTime/current_song.duration) *100 + "%";
+    })
+
+    //add an eventlistener to seekbar
+    document.querySelector('.seekbar').addEventListener('click',e=>{
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width)*100;
+        document.querySelector('.circle').style.left = percent +"%";
+        current_song.currentTime = ((current_song.duration) *percent)/100;
     })
 }
 
