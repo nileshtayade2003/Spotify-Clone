@@ -1,10 +1,11 @@
 let current_song = new Audio();
+let songs; 
 
 function secondsToMinutesSeconds(seconds)
 {
     if(isNaN(seconds) || seconds<0)
         {
-            return "ivalid input";
+            return "00:00";
         }
         
         const minutes = Math.floor(seconds/60);
@@ -55,7 +56,7 @@ async function main(){
     
 
     //get the list of all the songs
-    let songs = await getsongs();
+    songs = await getsongs();
     // console.log(songs)
     playmusic(songs[0],true);
 
@@ -114,6 +115,39 @@ async function main(){
         document.querySelector('.circle').style.left = percent +"%";
         current_song.currentTime = ((current_song.duration) *percent)/100;
     })
+
+    //add an event listener for hamberger
+    document.querySelector(".hamburger").addEventListener('click',()=>{
+        document.querySelector('.left').style.left = '0%';
+    })
+
+    //add an event listener to close hamburger
+    document.querySelector(".close-hamburger").addEventListener('click',()=>{
+        document.querySelector('.left').style.left = '-120%';
+    })
+
+    //add event listener to previous
+    previous.addEventListener('click',()=>{
+        console.log('previous clicked')
+        let index = songs.indexOf(current_song.src.split('/').slice(-1)[0])
+        // console.log(songs,index)
+        if((index-1)>=0){
+            playmusic(songs[index-1])
+        }
+    })
+
+    //add event listener to next
+    next.addEventListener('click',()=>{
+        console.log('next clicked')
+        let index = songs.indexOf(current_song.src.split('/').slice(-1)[0])
+        // console.log(songs,index)
+        if((index+1)<songs.length){
+            playmusic(songs[index+1])
+        }
+        
+    })
+
+    
 }
 
 main(); 
