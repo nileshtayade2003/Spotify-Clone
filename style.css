@@ -284,10 +284,33 @@ body{
     cursor: pointer;
 }
 
-.song-info, .song-time{
+.timevol{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.song-info{
     color: black;
     padding: 0 12px;
+    width: 250px;
 }
+ .song-time{
+    width: 125px;
+    color: black;
+    padding: 0 12px;
+ }
+
+ .volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+ }
+
+ .volume:hover::after{
+    content: "sadma";
+ }
+
 .above-bar{
     display: flex;
     justify-content: space-between;
@@ -303,6 +326,7 @@ body{
         z-index: 1;
         width: 350px;
         background-color: black;
+        padding: 0;
     }
 
     .song-info, .song-time{
@@ -316,6 +340,14 @@ body{
         right: 31px;
         top: 18px;
         /* width: 40px; */
+    }
+
+    .timevol{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        gap: 13px;
     }
 
     .right{
