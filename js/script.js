@@ -40,14 +40,14 @@ async function getsongs(folder){
      songul.innerHTML = "";
      for (const song of songs) {
          songul.innerHTML = songul.innerHTML + `<li>
-                 <img class="invert" src="music.svg" alt="">
+                 <img class="invert" src="img/music.svg" alt="">
                  <div class="info">
                    <div>${song.replaceAll("%20"," ")}</div>
                    <div>Nilu</div>
                  </div>
                  <div class="playnow">
                    <span>Play now</span>
-                   <img class="invert" src="play.svg" alt="">
+                   <img class="invert" src="img/play.svg" alt="">
                  </div>
              </li>`;
      }
@@ -72,7 +72,7 @@ const playmusic = (track, pause=false)=>{
     if(!pause)
     {
         current_song.play()
-        play.src = 'pause.svg'
+        play.src = 'img/pause.svg'
     }
 
     document.querySelector('.song-info').innerHTML = decodeURI(track);
@@ -144,11 +144,11 @@ async function main(){
         if(current_song.paused)
         {
             current_song.play();
-            play.src = 'pause.svg'
+            play.src = 'img/pause.svg'
         }
         else{
             current_song.pause();
-            play.src = 'play.svg'
+            play.src = 'img/play.svg'
         }
     })
 
@@ -207,16 +207,16 @@ async function main(){
 
     //add event listener to mute the track
     document.querySelector('.volume img').addEventListener('click',(e)=>{
-        if(e.target.src.includes("volume.svg"))
+        if(e.target.src.includes("img/volume.svg"))
         {
 
-            e.target.src= e.target.src.replace("volume.svg","mute.svg")
+            e.target.src= e.target.src.replace("img/volume.svg","img/mute.svg")
             current_song.volume = 0;
             document.querySelector('.range').getElementsByTagName('input')[0].value =0;
         }
         else{
             current_song.volume=.1;
-            e.target.src=e.target.src.replace("mute.svg","volume.svg");
+            e.target.src=e.target.src.replace("img/mute.svg","img/volume.svg");
             getElementsByTagName('input')[0].value =10;
         }
 
