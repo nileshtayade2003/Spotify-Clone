@@ -193,6 +193,9 @@ body{
 
 /* **************** playbar styles ******************* */
 .playbar{
+    display: flex;
+        justify-content: center;
+        align-items: center;
     position: fixed;
     bottom: 30px;
     filter: invert(1);
@@ -272,7 +275,7 @@ body{
     border-radius: 10px;
     background: black;
     position: absolute;
-    bottom: 0;
+    bottom: 8px;
     margin: 6px;
     cursor: pointer;
 }
@@ -330,12 +333,15 @@ body{
 @media (max-width: 1200px) {
     .left{
         position: absolute;
-        left: -120%;
+        left: -280%;
         transition: all .3s;
         z-index: 1;
         width: 350px;
         background-color: black;
         padding: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
     }
 
     .song-info, .song-time{
@@ -367,6 +373,7 @@ body{
 
     .playbar{
         width: calc(100vw - 105px);
+        
     }
 
     .seekbar{
@@ -396,10 +403,47 @@ body{
     .card-container{
         max-height: 50vh;
     }
+
+    .card-container{
+        max-height:unset;
+        overflow-y:unset ;
+        margin-bottom: 35vh;
+    }
+
+    .playbar{
+        right: 25px;
+    }
+
 }
 
 @media (max-width: 500px) {
     .card{
-        width: auto;
+        width: 100%;
     }
+
+    .header>*{
+        padding: 2px;
+    }
+
+    .buttons>*{
+        margin: 0 6px;
+    }
+
+    .header{
+        padding: 7px;
+    }
+   
+    .spotify-playlist h1{
+        padding: 4px;
+    }
+
+    .library{
+        height: 85vh;
+    }
+   
+   .left{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+   }
 }

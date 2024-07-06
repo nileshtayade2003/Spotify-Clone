@@ -202,6 +202,11 @@ async function main(){
     document.querySelector('.range').getElementsByTagName('input')[0].addEventListener('change',(e)=>{
         // console.log(e,e.target,e.target.value)
         current_song.volume = parseInt(e.target.value)/100;
+
+        if(current_song.volume>0)
+        {
+            document.querySelector('.volume img').src=document.querySelector('.volume img').src.replace("img/mute.svg","img/volume.svg");
+        }
     })
 
 
@@ -215,9 +220,9 @@ async function main(){
             document.querySelector('.range').getElementsByTagName('input')[0].value =0;
         }
         else{
-            current_song.volume=.1;
+            current_song.volume=0.1;
             e.target.src=e.target.src.replace("img/mute.svg","img/volume.svg");
-            getElementsByTagName('input')[0].value =10;
+            document.querySelector('.range').getElementsByTagName('input')[0].value =10;
         }
 
     })
